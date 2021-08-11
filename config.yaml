@@ -1,0 +1,31 @@
+# Copyright 2021 sergiomanso
+# See LICENSE file for licensing details.
+#
+# Learn more about config at: https://juju.is/docs/sdk/config
+
+options:
+  username:
+    type: string
+    description: "Username for the Transmission GUI"
+  password:
+    type: string
+    description: "Passworfor the Transmission GUI"
+  timezone:
+    type: string
+    description: "Timezone to use (default Europe/London)"
+  whitelist:
+    type: string
+    description: "Specify an optional list of comma separated ip whitelist. Fill rpc-whitelist setting."
+  host-whitelist:
+    type: string
+    description: "Specify an optional list of comma separated dns name whitelist. Fill rpc-host-whitelist setting."
+  ui-theme:
+    type: string
+    description: "Transmission UI theme"
+  external-url:
+    type: string
+    description: "The hostname of the service to create an ingress for."
+  tls-secret-name:
+    default: ""
+    type: string
+    description: "The name of the TLS secret to use. Leaving this empty will configure an ingress with TLS disabled."

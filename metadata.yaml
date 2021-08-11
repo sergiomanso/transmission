@@ -1,0 +1,39 @@
+# Copyright 2021 sergiomanso
+# See LICENSE file for licensing details.
+name: transmission
+display-name: Transmission client
+description: |
+  Transmission is an open source  BitTorrent client, designed for easy and powerful use.
+  It provides advanced features like watch directories, bad peer blocklists, and the web interface.
+summary: |
+  Transmission BitTorrent client v3.00
+
+containers:
+  transmission:
+    resource: transmission-image
+    mounts:
+      - storage: config
+        location: /config
+      - storage: downloads
+        location: /downloads
+      - storage: watch
+        location: /watch
+
+#https://juju.is/docs/sdk/storage
+storage:
+  config:
+    type: filesystem
+  downloads:
+    type: filesystem
+  watch:
+    type: filesystem
+    
+resources:
+  transmission-image:
+    default: ghcr.io/linuxserver/transmission
+    type: oci-image
+    description: OCI image for transmission (ghcr.io/linuxserver/transmission)
+
+requires:
+  ingress:
+    interface: ingress
